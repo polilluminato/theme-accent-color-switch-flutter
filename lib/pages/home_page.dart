@@ -19,13 +19,14 @@ class HomePage extends ConsumerWidget {
           ListTile(
             title: const Text("Enable Dark Mode"),
             trailing: Switch(
-              value: ref.watch(isDarkModeProvider),
+              value: ref.watch(isDarkModeProvider) == Brightness.dark,
               onChanged: (value) {
-                ref.read(isDarkModeProvider.notifier).update((state) => value);
+                ref.read(isDarkModeProvider.notifier).update(
+                    (state) => value ? Brightness.dark : Brightness.light);
               },
             ),
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ColorButton(color: Colors.red),
