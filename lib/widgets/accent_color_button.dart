@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:theme_accent_color_switch/provider/theme_provider.dart';
 
-class ColorButton extends ConsumerWidget {
-  const ColorButton({Key? key, required this.color}) : super(key: key);
+class AccentColorButton extends ConsumerWidget {
+  const AccentColorButton({Key? key, required this.color}) : super(key: key);
 
   final Color color;
 
