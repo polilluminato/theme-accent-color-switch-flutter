@@ -8,27 +8,23 @@ class ThemeButton extends ConsumerWidget {
 
   final bool isDark;
 
-  Color getBorderColor(Color providerColor, Brightness providerBrightness) {
+  Color getBorderColor(Color acProvider, Brightness tProvider) {
     if (isDark) {
-      return providerBrightness == Brightness.dark
-          ? providerColor
-          : Colors.transparent;
+      return tProvider == Brightness.dark ? acProvider : Colors.transparent;
     } else {
-      return providerBrightness == Brightness.light
-          ? providerColor
-          : Colors.transparent;
+      return tProvider == Brightness.light ? acProvider : Colors.transparent;
     }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final providerColor = ref.watch(accentColorProvider);
-    final darkModeProvider = ref.watch(isDarkModeProvider);
+    final acProvider = ref.watch(accentColorProvider);
+    final tProvider = ref.watch(brightnessProvider);
     double size = 32;
 
-    return GestureDetector(
+    return InkWell(
       onTap: () => ref
-          .read(isDarkModeProvider.notifier)
+          .read(brightnessProvider.notifier)
           .update((state) => isDark ? Brightness.dark : Brightness.light),
       child: Container(
           width: getScreenWidth(context) * .4,
@@ -36,7 +32,7 @@ class ThemeButton extends ConsumerWidget {
           decoration: BoxDecoration(
             border: Border.all(
               width: size * .1,
-              color: getBorderColor(providerColor, darkModeProvider),
+              color: getBorderColor(acProvider, tProvider),
             ),
             borderRadius: BorderRadius.circular(10),
           ),

@@ -3,23 +3,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:theme_accent_color_switch/provider/theme_provider.dart';
 
 class AccentColorButton extends ConsumerWidget {
-  const AccentColorButton({Key? key, required this.color}) : super(key: key);
+  const AccentColorButton({
+    Key? key,
+    required this.color,
+  }) : super(key: key);
 
   final Color color;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final providerColor = ref.watch(accentColorProvider);
+    final acProvider = ref.watch(accentColorProvider);
     double size = 32;
 
-    return GestureDetector(
+    return InkWell(
       onTap: () =>
           ref.read(accentColorProvider.notifier).update((state) => color),
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
             width: size * .1,
-            color: providerColor == color ? color : Colors.transparent,
+            color: acProvider == color ? color : Colors.transparent,
           ),
           borderRadius: BorderRadius.circular(size),
         ),

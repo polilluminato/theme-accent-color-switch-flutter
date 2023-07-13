@@ -18,7 +18,7 @@ class App extends ConsumerWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: ref.watch(accentColorProvider),
-        brightness: ref.watch(isDarkModeProvider),
+        brightness: ref.watch(brightnessProvider),
       ),
     );
   }
