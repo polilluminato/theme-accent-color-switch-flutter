@@ -1,10 +1,14 @@
 # Theme and Accent Color Switch
 
+<img src="cover.png">
+
 Simple Flutter Desktop app to demonstrate how to use riverpod to manage the dark and light theme change and accent color to be used within the application.
 
 | Light Mode                            | Dark Mode                            |
 | ------------------------------------- | ------------------------------------ |
 | <img src="screenshots/light-ui.png"/> | <img src="screenshots/dark-ui.png"/> |
+
+You can find the full article on: [Theme and Accent Color switch with Riverpod in Flutter](https://blog.albertobonacina.com/theme-and-accent-color-switch-with-riverpod-in-flutter)
 
 ## 🔗 Useful Links
 
